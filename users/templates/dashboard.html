@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>dashboard</title>
+    </head>
+    <body>
+        <h1><a href="/">Welcom {{ request.user }}</a></h1>
+        <h2><a href="{% url 'logout' %}">logout</a></h2>
+        {% if request.user.is_superuser %}
+        <h4>Managers List</h4>
+        {% for user in users %}
+            <p><b>Name:</b>{{ user.username}}</p>
+        {% endfor %}
+        {% endif %}
+    </body>
+</html>  
